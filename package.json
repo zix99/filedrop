@@ -1,5 +1,5 @@
 {
-  "name": "filedrop",
+  "name": "@zix99/filedrop",
   "version": "0.1.1",
   "description": "A simple webapp to easily share files",
   "main": "index.js",
@@ -33,5 +33,13 @@
   },
   "eslintIgnore": [
     "public/"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zix99/filedrop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zix99/filedrop/issues"
+  },
+  "homepage": "https://github.com/zix99/filedrop#readme"
 }
