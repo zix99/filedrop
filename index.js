@@ -29,8 +29,9 @@ app.use(morgan('combined', { stream: log.stream }));
 app.use(express.static('public'));
 
 app.post('/file', upload.single('file'), (req, res) => {
-  fs.rename(req.file.path, path.join(config.target, req.file.originalname));
-  res.send('OK');
+  fs.rename(req.file.path, path.join(config.target, req.file.originalname), () => {
+    res.send('OK');
+  });
 });
 
 app.get('/', (req, res) => {
