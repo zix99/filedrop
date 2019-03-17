@@ -6,7 +6,8 @@
   "scripts": {
     "start": "./index.js",
     "dev": "nodemon index.js -- --dev",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "npm version patch && git push && git push --tags && npm publish"
   },
   "bin": {
     "filedrop": "./index.js"
