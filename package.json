@@ -7,7 +7,7 @@
     "start": "./index.js",
     "dev": "nodemon index.js -- --dev",
     "lint": "eslint .",
-    "release": "npm version patch && git push && git push --tags && npm publish"
+    "release": "npm version patch && git push && git push --tags && npm publish --access public && docker build . --tag filedrop:latest --tag filedrop:$(npm info @zix99/filedrop version) && docker push filedrop:latest"
   },
   "bin": {
     "filedrop": "./index.js"
