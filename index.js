@@ -51,6 +51,7 @@ app.get('/', (req, res) => {
           }));
       }));
     }).then(files => {
+      files.sort((a, b) => a.stat.ctime < b.stat.ctime ? 1 : -1);
       res.render('index.html', { files });
     }).catch(err => {
       res.status(500).send(err);
