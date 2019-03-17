@@ -8,6 +8,9 @@
     "dev": "nodemon index.js -- --dev",
     "lint": "eslint ."
   },
+  "bin": {
+    "filedrop": "./index.js"
+  },
   "keywords": [
     "webapp",
     "upload",
