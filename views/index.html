@@ -19,7 +19,7 @@
   <h3>Files</h3>
   <div class="collection">
     {% for file in files %}
-      <a href="#" class="collection-item">{{file.name}}</a>
+      <a href="/files/{{file.filename}}" class="collection-item">{{file.filename}}</a>
     {% else %}
       <div class="collection-item">No files are here. Consider uploading one!</div>
     {% endfor %}

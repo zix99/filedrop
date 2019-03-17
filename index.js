@@ -4,9 +4,15 @@ const morgan = require('morgan');
 const nunjucks = require('nunjucks');
 const multer = require('multer');
 const fs = require('fs');
+const util = require('util');
 const path = require('path');
 const config = require('./config');
 const log = require('./log');
+
+const fsp = {
+  readdir: util.promisify(fs.readdir),
+  stat: util.promisify(fs.stat),
+};
 
 if (config.dev) {
   log.warn('Running in dev mode');
@@ -27,6 +33,7 @@ nunjucks.configure('views', {
 app.use(morgan('combined', { stream: log.stream }));
 
 app.use(express.static('public'));
+app.use('/files', express.static(config.target));
 
 app.post('/file', upload.single('file'), (req, res) => {
   fs.rename(req.file.path, path.join(config.target, req.file.originalname), () => {
@@ -35,7 +42,19 @@ app.post('/file', upload.single('file'), (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('index.html');
+  fsp.readdir(config.target)
+    .then(files => {
+      return Promise.all(files.map(filename => {
+        return fsp.stat(path.join(config.target, filename))
+          .then(stat => ({
+            stat, filename,
+          }));
+      }));
+    }).then(files => {
+      res.render('index.html', { files });
+    }).catch(err => {
+      res.status(500).send(err);
+    });
 });
 
 app.listen(config.port, () => {
