@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>FileDrop</h2>
+  {% include "welcome.html" %}
+
+  <h3>Files</h3>
+  <div class="collection">
+    {% for file in files %}
+      <a href="#" class="collection-item">{{file.name}}</a>
+    {% else %}
+      <div class="collection-item">No files are here. Consider uploading one!</div>
+    {% endfor %}
+  </div>
+{% endblock %}

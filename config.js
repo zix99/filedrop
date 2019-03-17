@@ -4,4 +4,5 @@ module.exports = require('rc')('filedrop', {
   multerLimits: {
     fileSize: 10 * 1024 * 1024,
   },
+  dev: false,
 });
