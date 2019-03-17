@@ -5,4 +5,5 @@ module.exports = require('rc')('filedrop', {
     fileSize: 10 * 1024 * 1024,
   },
   dev: false,
+  target: 'drops/',
 });

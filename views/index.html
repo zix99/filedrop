@@ -1,8 +1,20 @@
 {% extends "base.html" %}
 
+{% block head %}
+  {{super()}}
+  <link rel="stylesheet" type="text/css" href="/css/dropzone.min.css" />
+{% endblock %}
+
+{% block footjs %}
+  {{super()}}
+  <script src="/js/dropzone.js"></script>
+{% endblock %}
+
 {% block content %}
   <h2>FileDrop</h2>
   {% include "welcome.html" %}
+
+  <form action="/file" class="dropzone" id="file-dropzone"></form>
 
   <h3>Files</h3>
   <div class="collection">
