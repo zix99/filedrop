@@ -2,6 +2,8 @@
 
 FileDrop is a simple NodeJS application to upload and share files on local networks.
 
+It is written to work completely offline.  That means you can host it on a private network or an internetless access point.
+
 ![Screenshot](screenshot.png)
 
 # Installing
@@ -19,6 +21,22 @@ filedrop --target /path/to/savedir
 
 ```bash
 docker run -d -p 8080:8080 zix99/filedrop:latest
+```
+
+## From source
+
+First, clone the repo...
+
+Then:
+
+```bash
+npm install
+npm start
+```
+
+To develop:
+```bash
+npm run dev
 ```
 
 # Configuration
