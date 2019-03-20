@@ -7,7 +7,9 @@
     "start": "./index.js",
     "dev": "nodemon index.js -- --dev",
     "lint": "eslint .",
-    "release": "./release.sh"
+    "release": "./release.sh",
+    "forever": "forever start index.js",
+    "stop": "forever stop index.js"
   },
   "bin": {
     "filedrop": "./index.js"
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "eslint": "^5.15.2",
+    "forever": "^0.15.3",
     "nodemon": "^1.18.10"
   },
   "eslintIgnore": [

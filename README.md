@@ -1,5 +1,7 @@
 # FileDrop
 
+![npm (scoped)](https://img.shields.io/npm/v/@zix99/filedrop.svg)
+
 FileDrop is a simple NodeJS application to upload and share files on local networks.
 
 It is written to work completely offline.  That means you can host it on a private network or an internetless access point.
@@ -31,7 +33,12 @@ Then:
 
 ```bash
 npm install
+
+# To start in foreground
 npm start
+
+# To start in background
+npm run forever
 ```
 
 To develop:
